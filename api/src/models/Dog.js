@@ -22,7 +22,7 @@ module.exports = (sequelize) => {
     weight:{
       type:DataTypes.STRING
     },
-    lifeExpectancy:{
+    life_span:{
       type:DataTypes.STRING
     }
 
