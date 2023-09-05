@@ -1,5 +1,5 @@
 const {Router} = require ('express')
-const {getAllDogs, getRazaId, postDog} = require('../../controllers/dogsController')
+const {getAllDogs, getRazaId, postDog} = require('../../handlers/dogsHandler')
 
 const dogsRouter= Router()
 

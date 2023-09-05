@@ -1,25 +1,15 @@
-const getAllDogs = (req, res)=>{
+const axios = require('axios')
+const {YOUR_API_KEY} =process.env
+const {Dog} = require('../db.js')
 
 
-    if(req.query.name){
-        res.status(200).send(`NIY todas las razas q coinciden con${req.query.name}` )    
-    }
-    res.status(200).send("NIY arr de obj de todos los breeds")
+const linkApi = `https://api.thedogapi.com/v1/breeds?api_key=${YOUR_API_KEY}`
 
+
+const createDog = async (image, name, height, weight, life_span)=>{
+await Dog.create({image, name, height, weight, life_span})
 }
 
-const getRazaId = (req, res)=>{
-
-    res.status(200).send(`NIY obj detalle de la raza ${req.params.idRaza}`)
-
-}
-
-const postDog = (req, res)=>{
-    res.status(200).send(`NIY crea nuevo perro en db usando ${req.body.name} y el resto`)
-}
-
-module.exports = {
-    getAllDogs,
-    getRazaId,
-    postDog
-}
+    
+    
+module.exports={createDog}
