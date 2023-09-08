@@ -1,4 +1,4 @@
-const { getDogs, createDog } = require("../controllers/dogsController")
+const { getDogs, createDog, getDogbyId } = require("../controllers/dogsController")
 
 
 
@@ -18,7 +18,6 @@ const getAllDogs = async (req, res)=>{
           });
     
           if (dogsRevisados.length !== 0) {
-            console.log(dogsRevisados);
             return res.status(200).json(dogsRevisados);
           } else {
             throw new Error(`No se encuentra la raza ${name}`);
@@ -32,9 +31,21 @@ const getAllDogs = async (req, res)=>{
 
 }
 
-const getRazaId = (req, res)=>{
+const getRazaId = async(req, res)=>{
 
-    res.status(200).send(`NIY obj detalle de la raza ${req.params.idRaza}`)
+  try {
+    const id = req.params.idRaza
+    const foundDog = await getDogbyId(id)
+   if(foundDog!== undefined) res.status(200).json(foundDog)
+   
+   else throw new Error('No hay una raza de perro con esa ID')
+  
+  } catch (error) {
+    res.status(400).json({error: error.message})
+  }
+
+  
+
 
 }
 
@@ -43,10 +54,10 @@ const postDog = async (req, res)=>{
     
     try {
         
-        const {image, name, height, weight, life_span} = req.body
-        const newDog = await createDog(image, name, height, weight, life_span)
+        const {image, name, height, weight, life_span, temperament} = req.body
+        await createDog(image, name, height, weight, life_span, temperament)
 
-        res.status(201).json(newDog)
+        res.status(201).send('Perro creado correctamente')
 
     } catch (error) {
         res.status(400).json({error:error.message})
