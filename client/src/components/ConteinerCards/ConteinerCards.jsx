@@ -6,7 +6,7 @@ import { useSelector } from "react-redux"
 const ConteinerCards = ()=>{
     const perros = useSelector(state=>state.dogs)
     
-    // const perros = 
+     
 
     return(
         <div className={style.main_container}>

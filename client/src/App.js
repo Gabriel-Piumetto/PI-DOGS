@@ -27,7 +27,7 @@ function App() {
         <Home />
       </Route>
 
-      <Route path="/detail-dog">
+      <Route path={'/detail-dog/:idRaza'}>
         <Detail/>
       </Route>
 
