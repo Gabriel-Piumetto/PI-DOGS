@@ -8,7 +8,7 @@ dogsRouter.get("/", getAllDogs)
 
 dogsRouter.get("/:idRaza", getRazaId)
 
-dogsRouter.post("/", postDog )
+dogsRouter.post("/createDog", postDog )
 
 
 
