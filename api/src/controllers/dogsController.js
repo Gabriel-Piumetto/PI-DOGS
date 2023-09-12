@@ -54,31 +54,23 @@ const getDogs = async ()=>{
 }
 
      
-const createDog = async (image, name, height, weight, life_span, temperament)=>{
+const createDog = async (name, height, weight, life_span, temperament)=>{
 
-const selectTemperament = await Temperament.findAll({where: {name:temperament}}) 
  
 
-
- if(selectTemperament.length>0){
+ if(true){
   
-    const newDog = await  Dog.create({
+    const newDog = await Dog.create({
         name:name,
         height:height,
         weight:weight,
         life_span: life_span,
-        image:image,
-     })
-
-     await newDog.addTemperaments(selectTemperament)
- 
-
-
-}else throw new Error('El temperamento elegido no existe en la base de datos')
+        temperament:temperament
+     })}else throw new Error('El temperamento elegido no existe en la base de datos')
 
     
-}
 
+}
 
 module.exports={getDogs, getDogbyId, createDog}
 

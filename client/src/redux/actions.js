@@ -2,6 +2,7 @@ import axios from 'axios'
 
 export const GET_DOGS = "GET_DOGS"
 export const GET_DETAIL_DOG = "GET_DETAIL_DOG"
+export const GET_TEMPERAMENTS = "GET_TEMPERAMENTS"
 
 
 
@@ -30,6 +31,15 @@ export const getDetailDog  =(idRaza)=>{
          dispatch({type:GET_DETAIL_DOG,payload:dog})
 
     
+    }
+}
+
+export const getTemperaments =()=>{
+    return async(dispatch)=>{
+        const serverData = await axios.get('http://localhost:3001/temperaments')
+        const temperaments = serverData.data
+        
+        dispatch({type:GET_TEMPERAMENTS,payload:temperaments})
     }
 }
 

@@ -54,8 +54,11 @@ const postDog = async (req, res)=>{
     
     try {
         
-        const {image, name, height, weight, life_span, temperament} = req.body
-        await createDog(image, name, height, weight, life_span, temperament)
+        const {name, life_span, temperament} = req.body
+        const height =` ${req.body.min_height} - ${req.body.max_height}`
+        const weight =` ${req.body.min_weight} - ${req.body.max_weight}`
+
+        await createDog(name, height, weight, life_span, temperament)
 
         res.status(201).send('Perro creado correctamente')
 

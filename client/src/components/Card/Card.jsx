@@ -8,8 +8,8 @@ const Card = (props)=>{
     return(
         <div className={style.container_card}>
             <p>Nombre:  {name}</p>
-            <p>Temperamento:  {temperament}</p>
-            <p>Peso en KG:  {weight.metric}</p>
+            <p>Temperamento:  {`**${temperament}**`}</p>
+            <p>Peso en KG:  {weight.metric===undefined?weight:weight.metric}</p>
             <img className={style.img_dog} src={`${baseURL}${image}.jpg`}></img>
         </div>
     )

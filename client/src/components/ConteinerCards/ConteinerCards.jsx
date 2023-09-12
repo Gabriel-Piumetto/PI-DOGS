@@ -15,7 +15,7 @@ const ConteinerCards = ()=>{
                     return <Card
                     image={perro.reference_image_id}
                     name={perro.name}
-                    temperament={perro.temperament}
+                    temperament={`${perro.temperament}`}
                     weight={perro.weight}
                     />
                 }

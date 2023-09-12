@@ -1,0 +1,17 @@
+.mainContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: solid black;
+    border-radius: 17px;
+}
+.containerChecks{
+    display: grid;
+    padding: 1em;
+    border: solid black;
+    border-radius: 17px;
+    max-height: 270px;
+    max-width: fit-content; /* Ajusta la altura máxima para mostrar 10 checkboxes */
+    overflow-x:scroll;
+    overflow-y: scroll; /* Habilita la barra de desplazamiento vertical si es necesario */
+}

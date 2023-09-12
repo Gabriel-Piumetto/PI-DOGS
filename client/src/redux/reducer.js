@@ -1,4 +1,4 @@
-import { GET_DETAIL_DOG, GET_DOGS } from "./actions"
+import { GET_DETAIL_DOG, GET_DOGS,GET_TEMPERAMENTS } from "./actions"
 
 const initialState = {
     dogs:[],
@@ -14,7 +14,9 @@ const reducer = (state=initialState, action)=>{
         case GET_DOGS:
           return {...state, dogs:action.payload}
         case GET_DETAIL_DOG:
-            return {...state, detailDog:action.payload}  
+            return {...state, detailDog:action.payload}
+        case GET_TEMPERAMENTS:
+            return {...state,temperaments:action.payload}      
 
     }
 }

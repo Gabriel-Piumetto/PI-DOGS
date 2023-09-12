@@ -15,6 +15,7 @@ module.exports = (sequelize) => {
     },
     image:{
       type:DataTypes.STRING,
+  
     },
     height:{
       type:DataTypes.STRING
@@ -24,6 +25,9 @@ module.exports = (sequelize) => {
     },
     life_span:{
       type:DataTypes.STRING
+    },
+    temperament:{
+      type:DataTypes.ARRAY(DataTypes.STRING)
     }
 
   },{timestamps:false});
