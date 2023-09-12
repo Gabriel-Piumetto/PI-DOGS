@@ -1,0 +1,14 @@
+.MainConteiner{
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    border-radius: 15px;
+    border: 1px solid black;
+}
+.LinkHome{
+    padding: 1%;
+}
+
+.LinkForm{
+    padding: 1%;
+}

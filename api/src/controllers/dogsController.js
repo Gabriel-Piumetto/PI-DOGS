@@ -31,7 +31,7 @@ const getDogs = async ()=>{
     if (validate(id)) {
        
         
-     const matchDogDb = await Dog.findByPk(id)
+     const matchDogDb = await Dog.findByPk(id,{include:{model:Temperament, attributes:["name"]}})
       
       return matchDogDb
     }
@@ -45,10 +45,10 @@ const getDogs = async ()=>{
     
 
 
-    const foundDog = rawDataApi.find( (dog) => dog.id === Number(id))
+    const foundDogApi = rawDataApi.find( (dog) => dog.id === Number(id))
 
     
-    return foundDog
+    return foundDogApi
      
     
 }
@@ -70,7 +70,7 @@ const selectTemperament = await Temperament.findAll({where: {name:temperament}})
         image:image,
      })
 
-     await newDog.setTemperaments(selectTemperament)
+     await newDog.addTemperaments(selectTemperament)
  
 
 

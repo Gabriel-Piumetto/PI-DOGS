@@ -1,0 +1,10 @@
+.img_dog{
+    height: 150px;
+    width: 150px;
+    border-radius: 17px;
+}
+
+.container_card{
+    border:solid black;
+    border-radius: 17px;
+}
