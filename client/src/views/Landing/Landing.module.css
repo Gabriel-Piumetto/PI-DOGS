@@ -1,0 +1,12 @@
+.image{
+    border: solid black;
+    border-radius: 100%;
+}
+.button{
+    position:fixed;
+    width: 200px;
+    height: 70px;
+    border-radius: 17px;
+    margin-top: 500px;
+    margin-left: 60px;
+}
