@@ -2,6 +2,7 @@ import './App.css';
 import {Home, Landing, Detail, Form} from './views/index'
 import Navbar from './components/Navbar/Navbar'
 import { Route,useLocation } from 'react-router-dom'
+import ResultDogs from './views/resultDogs/ResultDogs';
 
 
 function App() {
@@ -19,8 +20,11 @@ function App() {
 
       
 
+
       <Route exact path="/" >
-        <Landing/>
+      
+        <Landing />
+       
       </Route>
 
       <Route path="/home">
@@ -31,9 +35,16 @@ function App() {
         <Detail/>
       </Route>
 
+      <Route path={'/search-results'}>
+        <ResultDogs></ResultDogs>
+      </Route>
+
       <Route path="/create-dog">
         <Form></Form>
       </Route>
+      
+      
+
 
 
     

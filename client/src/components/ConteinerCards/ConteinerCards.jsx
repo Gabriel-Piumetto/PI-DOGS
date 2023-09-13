@@ -3,12 +3,29 @@ import style from './ConteinerCards.module.css'
 import { useSelector } from "react-redux"
 
 
+
 const ConteinerCards = ()=>{
+    
+    
     const perros = useSelector(state=>state.dogs)
     
+    
+    
      
+    
+    
+    
+    
+    const showFoundDogs = ()=>{
+        
+    }
+
+
+
+
 
     return(
+
         <div className={style.main_container}>
             {perros.map(
                 perro => {
