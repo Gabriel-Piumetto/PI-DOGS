@@ -34,6 +34,7 @@ const ConteinerCards = ()=>{
                     name={perro.name}
                     temperament={`${perro.temperament}`}
                     weight={perro.weight}
+                    id={perro.id}
                     />
                 }
             )}
