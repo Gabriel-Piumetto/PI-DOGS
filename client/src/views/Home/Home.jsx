@@ -1,7 +1,8 @@
 import ConteinerCards from "../../components/ConteinerCards/ConteinerCards"
 import { useEffect, useState } from "react"
 import { useDispatch } from "react-redux"
-import { getDogs, filterByDb,filterByApi, filterByTemperament } from "../../redux/actions"
+import { getDogs, filterByDb,filterByApi, filterByTemperament, 
+        orderDogsByAsc, orderDogsByDes } from "../../redux/actions"
 
 const Home = ()=>{
 
@@ -47,6 +48,16 @@ const Home = ()=>{
 
      }
 
+     const handlerOrderAsc =()=>{
+        dispatch(orderDogsByAsc())
+     }
+
+     const handlerOrderDes=()=>{
+        dispatch(orderDogsByDes())
+     }
+
+
+
     return (    
         <div>
             <h1>HENRY DOGS!</h1>
@@ -56,6 +67,9 @@ const Home = ()=>{
             
             <label Filtrar por temperamento ></label>
             <input value={temperState} type="text" onChange={handlerInputTemp} /><button onClick={handlerFilterByTemperament}>FILTRAR POR TEMPERAMENTO</button>
+
+            <button onClick={handlerOrderAsc}>A-Z</button>
+            <button onClick={handlerOrderDes}>Z-A</button>
             <ConteinerCards/>
 
         </div>
