@@ -1,9 +1,8 @@
-import { GET_DETAIL_DOG, GET_DOGS,GET_TEMPERAMENTS, SEARCH_DOGS } from "./actions"
+import { GET_DETAIL_DOG, GET_DOGS,GET_TEMPERAMENTS, FILTER_DOGS_BY_DB, FILTER_DOGS_BY_API } from "./actions"
 
 const initialState = {
     dogs:[],
-    detailDog:[],
-    foundDogs:[]
+    detailDog:[]
 }
 
 
@@ -22,8 +21,10 @@ const reducer = (state=initialState, action)=>{
             return {...state, detailDog:action.payload}
         case GET_TEMPERAMENTS:
             return {...state,temperaments:action.payload}
-        case SEARCH_DOGS:
-            return { ...state, foundDogs: action.payload };
+        case FILTER_DOGS_BY_DB:
+            return {...state, dogs:action.payload}
+        case FILTER_DOGS_BY_API:
+            return {...state, dogs:action.payload}
                         
 
     }

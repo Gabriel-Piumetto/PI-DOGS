@@ -16,7 +16,7 @@ const Card = (props)=>{
             <p>Nombre:  {name}</p>
             <p>Temperamento:  {`**${temperament}**`}</p>
             <p>Peso en KG:  {weight.metric===undefined?weight:weight.metric}</p>
-            <img className={style.img_dog} src={`${baseURL}${image}.jpg`}></img>
+            <img alt='Imagen perro' className={style.img_dog} src={`${baseURL}${image}.jpg`}></img>
         </div>
     )
 }

@@ -28,6 +28,10 @@ module.exports = (sequelize) => {
     },
     temperament:{
       type:DataTypes.ARRAY(DataTypes.STRING)
+    },
+    isCreated:{
+      type:DataTypes.BOOLEAN,
+      defaultValue:true
     }
 
   },{timestamps:false});

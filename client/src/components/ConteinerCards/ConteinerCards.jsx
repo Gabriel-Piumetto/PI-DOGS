@@ -16,9 +16,7 @@ const ConteinerCards = ()=>{
     
     
     
-    const showFoundDogs = ()=>{
-        
-    }
+
 
 
 
