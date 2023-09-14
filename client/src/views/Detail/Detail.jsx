@@ -26,7 +26,10 @@ const baseURL = "https://cdn2.thedogapi.com/images/"
           <h1>DETALLE</h1>
           {detailDog ? (
             <>
-              <img src={`${baseURL}${detailDog.reference_image_id}.jpg`} alt="Dog" />
+
+            {detailDog.isCreated? <img alt='Imagen perro'src={detailDog.reference_image_id}></img>                
+            :<img src={`${baseURL}${detailDog.reference_image_id}.jpg`} alt="Dog" />}
+
               <h3>ID: {detailDog.id}</h3>
               <h3>Nombre: {detailDog.name}</h3>
               {detailDog.height ? <h4>Altura: {`${detailDog.height.metric} CM`}</h4> : null}

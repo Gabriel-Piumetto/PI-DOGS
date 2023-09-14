@@ -14,7 +14,7 @@ const ConteinerCards = ()=>{
      
     
     
-    ///////////////////////////PAGINACIÓN////////////////////////////////////////////////////////////
+///////////////////////////PAGINACIÓN////////////////////////////////////////////////////////////
     
     
     const resultsPerPage = 8;
@@ -71,6 +71,7 @@ const handlePageBackward = () => {
                     temperament={`${perro.temperament}`}
                     weight={perro.weight}
                     id={perro.id}
+                    isCreated={perro.isCreated}
                     />
                 }
             )}

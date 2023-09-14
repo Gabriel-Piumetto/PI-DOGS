@@ -1,4 +1,9 @@
-.main_container{display: flex;
+.main_container{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px; 
+  
   flex-wrap: wrap; 
   justify-content: space-between;
+
 }

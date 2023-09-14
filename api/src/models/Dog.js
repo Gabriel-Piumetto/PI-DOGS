@@ -13,8 +13,9 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    image:{
+    reference_image_id:{
       type:DataTypes.STRING,
+      defaultValue:'https://i.imgur.com/oXRRS9s.png'
   
     },
     height:{

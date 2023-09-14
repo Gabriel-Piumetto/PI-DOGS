@@ -76,9 +76,12 @@ const Home = ()=>{
             <button onClick={handlerFilterDb}>DB</button>
             <button onClick={handlerFilterApi}>API</button>
             <button onClick={handlerFilterAll}>TODOS</button>
-            
+            <div>
+
             <label Filtrar por temperamento ></label>
             <input value={temperState} type="text" onChange={handlerInputTemp} /><button onClick={handlerFilterByTemperament}>FILTRAR POR TEMPERAMENTO</button>
+
+            </div>
 
             <button onClick={handlerOrderAsc}>A-Z</button>
             <button onClick={handlerOrderDes}>Z-A</button>
