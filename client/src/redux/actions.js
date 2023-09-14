@@ -169,7 +169,22 @@ export const orderDogsByDes =()=>{
     }
 }
             
+export const orderByWeightAsc =()=>{
+    return async(dispatch)=>{
+        
+        const serverData = await axios.get(`http://localhost:3001/dogs/`)
+        const dogs = serverData.data
 
+        let arrString= []
+
+        dogs.forEach( dog => arrString.push( dog.weight.metric.split(','))  )
+       
+        
+    
+       
+    }    
+
+}
       
       
      
