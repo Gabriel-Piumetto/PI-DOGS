@@ -1,4 +1,4 @@
-import { GET_DETAIL_DOG, GET_DOGS,GET_TEMPERAMENTS, FILTER_DOGS_BY_DB, FILTER_DOGS_BY_API } from "./actions"
+import { GET_DETAIL_DOG, GET_DOGS,GET_TEMPERAMENTS, FILTER_DOGS_BY_DB, FILTER_DOGS_BY_API, FILTER_DOGS_BY_TEMPER } from "./actions"
 
 const initialState = {
     dogs:[],
@@ -24,6 +24,8 @@ const reducer = (state=initialState, action)=>{
         case FILTER_DOGS_BY_DB:
             return {...state, dogs:action.payload}
         case FILTER_DOGS_BY_API:
+            return {...state, dogs:action.payload}
+        case FILTER_DOGS_BY_TEMPER:
             return {...state, dogs:action.payload}
                         
 

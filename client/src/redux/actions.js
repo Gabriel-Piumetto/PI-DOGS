@@ -6,6 +6,7 @@ export const GET_DETAIL_DOG = "GET_DETAIL_DOG"
 export const GET_TEMPERAMENTS = "GET_TEMPERAMENTS"
 export const FILTER_DOGS_BY_DB = "FILTER_DOGS_BY_DB"
 export const FILTER_DOGS_BY_API = "FILTER_DOGS_BY_API"
+export const FILTER_DOGS_BY_TEMPER = "FILTER_DOGS_BY_TEMPER"
 
 
 
@@ -42,6 +43,30 @@ export const filterByApi = ()=>{
 
         dispatch({type:FILTER_DOGS_BY_API, payload:filtered})
     }
+}
+
+export const filterByTemperament = (temperament)=>{
+
+    return async(dispatch)=>{
+        
+        const serverData = await axios.get(`http://localhost:3001/dogs/`)
+        const dogs = serverData.data
+
+
+
+        let selectDogs = []
+
+
+    dogs.forEach( (dog) => dog.temperament?.includes(temperament)&& selectDogs.push(dog)  )
+
+    
+
+        
+            
+        
+        dispatch({type:FILTER_DOGS_BY_API, payload:selectDogs}) 
+    }
+
 }
 
 
