@@ -56,17 +56,19 @@ const Home = ()=>{
         dispatch(orderDogsByDes())
      }
 
-const handlerOrderWeightAsc = ()=>{
+    const handlerOrderWeightAsc = ()=>{
     
     dispatch(orderByWeightAsc())
     
-}
+    }
 
-const handlerOrderWeightDes = ()=>{
+    const handlerOrderWeightDes = ()=>{
     
     dispatch(orderByWeightDes())
     
-}
+   }
+
+
 
     return (    
         <div>
