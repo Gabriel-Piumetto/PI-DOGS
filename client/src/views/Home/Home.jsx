@@ -2,7 +2,7 @@ import ConteinerCards from "../../components/ConteinerCards/ConteinerCards"
 import { useEffect, useState } from "react"
 import { useDispatch } from "react-redux"
 import { getDogs, filterByDb,filterByApi, filterByTemperament, 
-        orderDogsByAsc, orderDogsByDes, orderByWeightAsc } from "../../redux/actions"
+        orderDogsByAsc, orderDogsByDes, orderByWeightAsc, orderByWeightDes } from "../../redux/actions"
 
 const Home = ()=>{
 
@@ -62,6 +62,12 @@ const handlerOrderWeightAsc = ()=>{
     
 }
 
+const handlerOrderWeightDes = ()=>{
+    
+    dispatch(orderByWeightDes())
+    
+}
+
     return (    
         <div>
             <h1>HENRY DOGS!</h1>
@@ -74,9 +80,10 @@ const handlerOrderWeightAsc = ()=>{
 
             <button onClick={handlerOrderAsc}>A-Z</button>
             <button onClick={handlerOrderDes}>Z-A</button>
-            <button onClick={handlerOrderWeightAsc}>Menor peso</button>
+            <button onClick={handlerOrderWeightAsc}>Ord. por menor peso</button>
+            <button onClick={handlerOrderWeightDes}>Ord. por mayor peso</button>
             <ConteinerCards/>
-
+            
         </div>
     )
 }

@@ -10,6 +10,9 @@ export const FILTER_DOGS_BY_TEMPER = "FILTER_DOGS_BY_TEMPER"
 export const ORDER_DOGS_BY_ALPH_ASC = "ORDER_DOGS_BY_ALPH_ASC"
 export const ORDER_DOGS_BY_ALPH_DES = "ORDER_DOGS_BY_ALPH_DES"
 export const ORDER_DOGS_BY_WEIGHT_ASC = "ORDER_DOGS_BY_WEIGHT_ASC"
+export const ORDER_DOGS_BY_WEIGHT_DES = "ORDER_DOGS_BY_WEIGHT_DES"
+
+
 
 export const getDogs = () => {
   return async (dispatch) => {
@@ -220,7 +223,60 @@ const dogsOrdenados = promedioDogs.sort((a, b) => a.weight.metric - b.weight.met
 dispatch({ type: ORDER_DOGS_BY_WEIGHT_ASC, payload: dogsOrdenados })
 
 }
-};
+}
+
+export const orderByWeightDes = () => {
+  return async (dispatch) => {
+
+    const serverData = await axios.get(`http://localhost:3001/dogs/`)
+
+    const dogs = serverData.data
+
+    const unificarMeter = dogs.map(item => {
+      if (item.isCreated) {
+        const weightParts = item.weight.split(' - ');
+        const weightMetric = `${weightParts[0]} - ${weightParts[1]}`;
+        item.weight = {
+          imperial: item.weight,
+          metric: weightMetric
+        };
+      }
+      return item;})
+
+
+    
+const promedioDogs = unificarMeter.map((dog) => {
+  
+  if (typeof dog.weight.metric === "string") {
+  
+    const metricNumeros = dog.weight.metric.split(" - ");
+
+  
+    const numero1 = parseInt(metricNumeros[0]);
+    const numero2 = parseInt(metricNumeros[1]);
+
+      const promedio = (numero1 + numero2) / 2;
+
+  
+    return {
+      ...dog,
+      weight: {
+        metric: promedio,
+      },
+    };
+  } else {
+  
+    return dog;
+  }
+});
+
+const dogsOrdenados = promedioDogs.sort((a, b) => b.weight.metric - a.weight.metric);
+
+
+dispatch({ type: ORDER_DOGS_BY_WEIGHT_DES, payload: dogsOrdenados })
+
+}
+}
 
 
 
