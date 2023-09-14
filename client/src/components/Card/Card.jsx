@@ -10,7 +10,7 @@ const Card = (props)=>{
 
     history.push(`/detail-dog/${props.id}`)
  }
-console.log(image)
+
     return(
         <div className={style.container_card} onClick={handlerDetail}>
             <p>Nombre:  {name}</p>
