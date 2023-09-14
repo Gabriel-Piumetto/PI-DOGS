@@ -1,5 +1,6 @@
 import { GET_DETAIL_DOG, GET_DOGS,GET_TEMPERAMENTS, FILTER_DOGS_BY_DB, 
-       FILTER_DOGS_BY_API, FILTER_DOGS_BY_TEMPER, ORDER_DOGS_BY_ASC, ORDER_DOGS_BY_DES } from "./actions"
+       FILTER_DOGS_BY_API, FILTER_DOGS_BY_TEMPER, ORDER_DOGS_BY_ALPH_ASC, ORDER_DOGS_BY_ALPH_DES,
+       ORDER_DOGS_BY_WEIGHT_ASC, } from "./actions"
 
 const initialState = {
     dogs:[],
@@ -28,10 +29,12 @@ const reducer = (state=initialState, action)=>{
             return {...state, dogs:action.payload}
         case FILTER_DOGS_BY_TEMPER:
             return {...state, dogs:action.payload}
-        case ORDER_DOGS_BY_ASC:
+        case ORDER_DOGS_BY_ALPH_ASC:
             return {...state, dogs:action.payload}
-        case ORDER_DOGS_BY_DES:
-            return {...state, dogs:action.payload}                    
+        case ORDER_DOGS_BY_ALPH_DES:
+            return {...state, dogs:action.payload}
+        case ORDER_DOGS_BY_WEIGHT_ASC:            
+            return {...state, dogs:action.payload}            
 
     }
 }
