@@ -10,13 +10,11 @@ const ResultDogs = () => {
 
     useEffect(() => {
         const traerData = async () => {
-            try {
+            
                 const serverData = await axios.get(`http://localhost:3001/dogs${searched}`);
                 const dogs = serverData.data;
-                setPerroState(dogs); // Actualiza el estado directamente con el array de perros
-            } catch (error) {
-                console.error("Error al obtener datos:", error);
-            }
+                setPerroState(dogs)
+            
         }
 
         traerData();
@@ -28,7 +26,7 @@ const ResultDogs = () => {
         <div>
             {perroState.map((perro) => (
                 <Card
-                    key={perro.id} // Agrega una clave única para cada elemento en el array
+                    id={perro.id} 
                     image={perro.reference_image_id}
                     name={perro.name}
                     temperament={`${perro.temperament}`}
