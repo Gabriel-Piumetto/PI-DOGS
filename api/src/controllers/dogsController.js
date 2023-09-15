@@ -58,7 +58,7 @@ const createDog = async (name, height, weight, life_span, temperament)=>{
 
  
 
- if(true){
+ 
   
     const newDog = await Dog.create({
         name:name,
@@ -66,7 +66,7 @@ const createDog = async (name, height, weight, life_span, temperament)=>{
         weight:weight,
         life_span: life_span,
         temperament:temperament
-     })}else throw new Error('El temperamento elegido no existe en la base de datos')
+     })
 
     
 

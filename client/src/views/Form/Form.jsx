@@ -44,7 +44,7 @@ const Form = () => {
         if(formState.min_height>formState.max_height){alert('LA ALTURA MÁXIMA NO PUEDE SER MENOR QUE LA MÍNIMA');return}
         if(formState.min_weight>formState.max_weight){alert('EL PESO MÁXIMO NO PUEDE SER MENOR QUE EL MÍNIMO');return} 
         
-        else axios.post('http://localhost:3001/dogs/createDog/', formState).then(
+        return axios.post('http://localhost:3001/dogs/createDog/', formState).then(
             response => alert(response.data)).catch(error => alert(error.message))
 
     }

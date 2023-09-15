@@ -32,8 +32,8 @@ const baseURL = "https://cdn2.thedogapi.com/images/"
 
               <h3>ID: {detailDog.id}</h3>
               <h3>Nombre: {detailDog.name}</h3>
-              {detailDog.height ? <h4>Altura: {detailDog.isCreated?`${detailDog.height.metric} CM`:`${detailDog.height.metric} CM`}</h4> : null}
-              {detailDog.weight ? <h4>Peso: {detailDog.isCreated?`${detailDog.height.metric} CM`:`${detailDog.height.metric} KG`}</h4> : null}
+              {detailDog.height ? <h4>Altura: {detailDog.isCreated?`${detailDog.height} CM`:`${detailDog.height.metric} CM`}</h4> : null}
+              {detailDog.weight ? <h4>Peso: {detailDog.isCreated?`${detailDog.height} CM`:`${detailDog.height.metric} KG`}</h4> : null}
               <h4>Temperamento: {detailDog.temperament}</h4>
               <h4>Años de vida : {detailDog.life_span}</h4>
             </>
