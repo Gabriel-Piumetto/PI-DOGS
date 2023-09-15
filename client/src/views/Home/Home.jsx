@@ -130,7 +130,7 @@ const orderByWeightAsc = () => {
 
 
   const orderByWeightDes = () => {
-    const ORDER_DOGS_BY_WEIGHT_ASC = "ORDER_DOGS_BY_WEIGHT_ASC";
+    const ORDER_DOGS_BY_WEIGHT_ASC = "ORDER_DOGS_BY_WEIGHT_ASC"
      
     const dogs = [...dogsGlobal];
      
