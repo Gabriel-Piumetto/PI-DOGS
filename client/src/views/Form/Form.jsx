@@ -28,10 +28,8 @@ const Form = () => {
 
     const [errors, setErrors] = useState({
         name: "",
-        min_height: "",
-        max_height: "",
-        min_weight: "",
-        max_weight: "",
+        height:"",
+        weight: "",
         life_span: ""
 
     })
@@ -40,8 +38,13 @@ const Form = () => {
     const submitHandler = (event) => {
 
         event.preventDefault()
-
-        axios.post('http://localhost:3001/dogs/createDog/', formState).then(
+        if(formState.name===""){alert('EL CAMPO NOMBRE NO PUEDE ESTAR EN BLANCO');return}
+        if(errors.name==="El nombre no debe contener números" ){alert('EL NOMBRE NO PUEDE CONTENER NÚMEROS');return}
+        if(formState.temperament.length===0){alert('DEBE SELECCIONAR AL MENOS 1 TEMPERAMENTO');return}
+        if(formState.min_height>formState.max_height){alert('LA ALTURA MÁXIMA NO PUEDE SER MENOR QUE LA MÍNIMA');return}
+        if(formState.min_weight>formState.max_weight){alert('EL PESO MÁXIMO NO PUEDE SER MENOR QUE EL MÍNIMO');return} 
+        
+        else axios.post('http://localhost:3001/dogs/createDog/', formState).then(
             response => alert(response.data)).catch(error => alert(error.message))
 
     }
@@ -69,6 +72,10 @@ const Form = () => {
         if (formState.name === "") {
             setErrors({ name: "El campo nombre no puede estar vacío" })
         }
+        if(formState.min_height>formState.max_height){
+            setErrors({height: "La altura máxima no puede ser menor que la mínima" })}
+        if(formState.min_weight>formState.max_weight){
+        setErrors({weight: "El peso máximo no puede ser menor que el mínimo" })}    
     }
 
     const handlerCheckboxes = (event) => {
@@ -108,12 +115,13 @@ const Form = () => {
 
                     <div>
                         <label>Altura mínima: </label>
-                        <input type="text" name="min_height" onChange={changeHandler} value={formState.min_height}></input>
+                        <input type="text" name="min_height" onChange={changeHandler} value={formState.height}></input>
+                    {errors.height ? <span>{errors.height}</span> : null}
                     </div>
 
                     <div>
                         <label>Altura máxima: </label>
-                        <input type="text" name="max_height" onChange={changeHandler} value={formState.max_height}></input>
+                        <input type="text" name="max_height" onChange={changeHandler} value={formState.height}></input>
                     </div>
 
                 </div>
@@ -123,6 +131,7 @@ const Form = () => {
                     <div>
                         <label>Peso mínimo: </label>
                         <input type="text" name="min_weight" onChange={changeHandler} value={formState.min_weight}></input>
+                        {errors.weight? <span>{errors.weight}</span> : null}
                     </div>
 
                     <div>
@@ -162,6 +171,6 @@ const Form = () => {
         </div>
     )
 
-
+                        
 }
 export default Form

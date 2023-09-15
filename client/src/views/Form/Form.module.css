@@ -15,3 +15,6 @@
     overflow-x:scroll;
     overflow-y: scroll; /* Habilita la barra de desplazamiento vertical si es necesario */
 }
+span{
+    color: red;
+}
